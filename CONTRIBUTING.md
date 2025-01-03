@@ -24,13 +24,13 @@ To get started, you will need **Git**, which you can download from [here](https:
    git clone <your-forked-repo-url>
 Replace <your-forked-repo-url> with the URL you just copied.
 
-Step 3: Edit the README.md File ✏️
-Inside the folder Welcome-to-Open-Source, open the README.md file in your preferred text editor (e.g., VSCode).
+---
 
-Add your name to the contributors list by inserting the following code snippet inside the <tbody> tag:
+## Step 3: Edit the README.md File ✏️
+1. Inside the folder Welcome-to-Open-Source, open the README.md file in your preferred text editor (e.g., VSCode).
 
-html
-Copy code
+2. Add your name to the contributors list by inserting the following code snippet inside the <tbody> tag:
+
 <td align="center">
     <a href="https://github.com/your-username">
         <img src="https://avatars.githubusercontent.com/u/your-avatar-id?v=4" width="100px;" alt="Your Name"/>
@@ -38,32 +38,34 @@ Copy code
         <sub><b>Your Name</b></sub>
     </a>
 </td>
+
 Replace https://github.com/your-username with your GitHub profile URL.
 Replace https://avatars.githubusercontent.com/u/your-avatar-id?v=4 with your GitHub avatar URL.
 Replace Your Name with your name.
-Step 4: Save and Commit Your Changes 💾
-Save your changes to the README.md file.
-In your terminal, stage the changes by typing:
-bash
-Copy code
-git add .
-Commit the changes with a message:
-bash
-Copy code
+
+## Step 4: Save and Commit Your Changes 💾
+1. Save your changes to the README.md file.
+2. In your terminal, stage the changes by typing:
+   ```bash
+   git add .
+3.Commit the changes with a message:
 git commit -m "Adding my name to the contributors list 🌟"
-Step 5: Push Your Changes 🚀
+
+## Step 5: Push Your Changes 🚀
 Push the changes to your forked repository:
 
-bash
-Copy code
 git push origin master
-Step 6: Create a Pull Request 🔄
-Go to your forked repository on GitHub.
-Click the green Open Pull Request button.
-In the comments section, type:
-plaintext
-Copy code
+
+## Step 6: Create a Pull Request 🔄
+
+1. Go to your forked repository on GitHub.
+2. Click the green Open Pull Request button.
+3. In the comments section, type:
 Adding my name to the contributors list 🌟
-Press Create Pull Request.
-Step 7: Wait for Review 🔍
+4. Press Create Pull Request.
+
+
+## Step 7: Wait for Review 🔍
 Your pull request will be reviewed by a maintainer. Once approved, it will be merged into the main repository, and your name will be added to the contributors list!
+
+

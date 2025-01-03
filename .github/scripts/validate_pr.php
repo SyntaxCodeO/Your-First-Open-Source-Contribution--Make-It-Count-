@@ -61,6 +61,10 @@ function main()
     $baseNames = getNamesFromReadme($baseReadme);
     $headNames = getNamesFromReadme($headReadme);
 
+    // Debugging output for base and head names
+    echo "Base Names: " . implode(", ", $baseNames) . "\n";
+    echo "Head Names: " . implode(", ", $headNames) . "\n";
+
     // Ensure no duplicates in head README
     if (count($headNames) !== count(array_unique($headNames))) {
         throw new Exception("Duplicate names found in the head README.");
@@ -68,6 +72,8 @@ function main()
 
     // Ensure only one name is added
     $addedNames = array_diff($headNames, $baseNames);
+    echo "Added Names: " . implode(", ", $addedNames) . "\n"; // Debugging added names
+
     if (count($addedNames) !== 1) {
         throw new Exception("Exactly one name should be added.");
     }

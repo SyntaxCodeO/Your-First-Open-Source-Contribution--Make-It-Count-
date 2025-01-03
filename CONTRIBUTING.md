@@ -44,8 +44,9 @@ Replace Your Name with your name.
 ## Step 4: Save and Commit Your Changes 💾
 1. Save your changes to the README.md file.
 2. In your terminal, stage the changes by typing:
-   ```bash
+```bash
    git add .
+```
 3.Commit the changes with a message:
 ```bash
 

@@ -1,0 +1,36 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  validate-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the base branch
+    - name: Checkout base branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.base_ref }}
+
+    # Step 2: Checkout the head branch
+    - name: Checkout head branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+        path: head
+
+    # Step 3: Setup PHP
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: dom
+
+    # Step 4: Run validation script
+    - name: Run validation
+      run: php .github/scripts/validate_readme.php

@@ -8,7 +8,7 @@
 
 🔄 Create a Pull Request (PR) – Submit your changes for review.
 
-🎉 Once merged, you’re officially a contributor! Your name will be added to the list of proud open-source contributors! 🙌
+🎉 Once merged, you’re officially a contributor!!! Your name will be added to the list of proud open-source contributors! 🙌
 
 <p align="center">
     <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHVvbTY4aHR1ZHRiM2s1MngwcXA5Z3kyazFhY2J4N3RsZ2dkdDFiaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oz8xA9gtnyVDPZJHW/giphy.gif" alt="Hacker GIF">

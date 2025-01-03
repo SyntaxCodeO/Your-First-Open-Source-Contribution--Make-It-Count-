@@ -20,7 +20,7 @@ function getNamesFromReadme($readmePath)
 
     foreach ($rows as $row) {
         $cols = $row->getElementsByTagName('td');
-        if ($cols->length === 5) { // Ensure 5 columns only
+        if ($cols->length === 5) { // Ensure 5 columns only per row
             foreach ($cols as $col) {
                 $bElements = $col->getElementsByTagName('b');
                 if ($bElements->length > 0) {
@@ -63,6 +63,14 @@ function main()
     $addedName = reset($addedNames);
     if (end($headNames) !== $addedName) {
         throw new Exception("New name must be added to the end of the table.");
+    }
+
+    // Check if the number of contributors in the new file follows the correct sequence (incrementing the row number)
+    $baseContributorsCount = count($baseNames);
+    $headContributorsCount = count($headNames);
+
+    if ($headContributorsCount !== $baseContributorsCount + 1) {
+        throw new Exception("The number of contributors in the head README should be exactly one more than the base README.");
     }
 
     echo "Validation passed.\n";

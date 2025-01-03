@@ -39,9 +39,9 @@ Replace <your-forked-repo-url> with the URL you just copied.
     </a>
 </td>
 ```
-Replace https://github.com/your-username with your GitHub profile URL.
-Replace https://avatars.githubusercontent.com/u/your-avatar-id?v=4 with your GitHub avatar URL.
-Replace Your Name with your name.
+1.Replace https://github.com/your-username with your GitHub profile URL.
+2.Replace https://avatars.githubusercontent.com/u/your-avatar-id?v=4 with your GitHub avatar URL.
+3.Replace Your Name with your name.
 
 ## Step 4: Save and Commit Your Changes 💾
 1. Save your changes to the README.md file.

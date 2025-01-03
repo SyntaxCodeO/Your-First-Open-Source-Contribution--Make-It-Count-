@@ -49,6 +49,8 @@ Replace Your Name with your name.
    ```bash
    git add .
 3.Commit the changes with a message:
+   ```bash
+
 git commit -m "Adding my name to the contributors list 🌟"
 
 ## Step 5: Push Your Changes 🚀

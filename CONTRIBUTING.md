@@ -20,11 +20,10 @@ To get started, you will need **Git**, which you can download from [here](https:
 1. Once you’ve forked the repository, you’ll land on your forked repository’s page.
 2. Click the green **Code** button, then copy the repository URL.
 3. Open your terminal and run:
-   ```bash
+```bash
    git clone <your-forked-repo-url>
+```
 Replace <your-forked-repo-url> with the URL you just copied.
-
----
 
 ## Step 3: Edit the README.md File ✏️
 1. Inside the folder Welcome-to-Open-Source, open the README.md file in your preferred text editor (e.g., VSCode).
@@ -40,7 +39,9 @@ Replace <your-forked-repo-url> with the URL you just copied.
 </td>
 ```
 1.Replace https://github.com/your-username with your GitHub profile URL.
+
 2.Replace https://avatars.githubusercontent.com/u/your-avatar-id?v=4 with your GitHub avatar URL.
+
 3.Replace Your Name with your name.
 
 ## Step 4: Save and Commit Your Changes 💾

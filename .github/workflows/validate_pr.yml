@@ -28,4 +28,4 @@ jobs:
           tools: composer
 
       - name: Run validation script
-        run: php .github/workflows/validate_pr.php
+        run: php .github/scripts/validate_pr.php  # Adjust the path here

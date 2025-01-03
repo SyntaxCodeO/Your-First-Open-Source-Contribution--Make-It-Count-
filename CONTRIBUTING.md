@@ -38,7 +38,7 @@ Replace <your-forked-repo-url> with the URL you just copied.
         <sub><b>Your Name</b></sub>
     </a>
 </td>
-
+```
 Replace https://github.com/your-username with your GitHub profile URL.
 Replace https://avatars.githubusercontent.com/u/your-avatar-id?v=4 with your GitHub avatar URL.
 Replace Your Name with your name.

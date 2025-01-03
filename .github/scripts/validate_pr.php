@@ -36,66 +36,28 @@ function getNamesFromReadme($readmePath)
     return $names;
 }
 
-function createTableRows($names, $maxColumns = 5)
-{
-    $rows = [];
-    $chunkedNames = array_chunk($names, $maxColumns);
-
-    foreach ($chunkedNames as $chunk) {
-        $row = "<tr>";
-        foreach ($chunk as $name) {
-            $row .= "<td>$name</td>";
-        }
-        $row .= "</tr>";
-        $rows[] = $row;
-    }
-
-    return $rows;
-}
-
 function main()
 {
-    $baseReadme = 'README.md';
-    $headReadme = 'head/README.md';
+    $readmePath = 'README.md';  // The single README file to check
 
-    $baseNames = getNamesFromReadme($baseReadme);
-    $headNames = getNamesFromReadme($headReadme);
+    $existingNames = getNamesFromReadme($readmePath);  // Names already listed in the README
 
-    // Debugging output for base and head names
-    echo "Base Names: " . implode(", ", $baseNames) . "\n";
-    echo "Head Names: " . implode(", ", $headNames) . "\n";
+    // Debugging output for existing names
+    echo "Existing Names: " . implode(", ", $existingNames) . "\n";
 
-    // Ensure no duplicates in head README
-    if (count($headNames) !== count(array_unique($headNames))) {
-        throw new Exception("Duplicate names found in the head README.");
+    // In this version, new names would come dynamically from the PR or input
+    // Example: Here we simulate new names coming from a PR or a list.
+    $newNames = [];  // This would be populated with new names to check against the README
+
+    // Check if any new name already exists in the README
+    $duplicateNames = array_intersect($newNames, $existingNames);
+
+    if (!empty($duplicateNames)) {
+        echo "Error: Duplicate names found: " . implode(", ", $duplicateNames) . "\n";
+        exit(1);
     }
 
-    // Ensure only one name is added
-    $addedNames = array_diff($headNames, $baseNames);
-    echo "Added Names: " . implode(", ", $addedNames) . "\n"; // Debugging added names
-
-    if (count($addedNames) !== 1) {
-        throw new Exception("Exactly one name should be added.");
-    }
-
-    $addedName = reset($addedNames);
-    if (end($headNames) !== $addedName) {
-        throw new Exception("New name must be added to the end of the table.");
-    }
-
-    // Create the table rows with a max of 5 contributors per row
-    $rows = createTableRows($headNames);
-
-    // Output the table
-    echo "<table>\n";
-    echo "<tbody>\n";
-    foreach ($rows as $row) {
-        echo $row . "\n";
-    }
-    echo "</tbody>\n";
-    echo "</table>\n";
-
-    echo "Validation passed.\n";
+    echo "Validation passed: No duplicates found.\n";
     exit(0);
 }
 

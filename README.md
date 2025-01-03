@@ -5,7 +5,9 @@
 🚨 Important Notice: To ensure your Pull Request (PR) is accepted, please follow these steps:
 
 🍴 Fork the repository – Make your own copy of the project.
+
 🔄 Create a Pull Request (PR) – Submit your changes for review.
+
 🎉 Once merged, you’re officially a contributor! Your name will be added to the list of proud open-source contributors! 🙌
 
 <p align="center">

@@ -30,7 +30,15 @@ Replace <your-forked-repo-url> with the URL you just copied.
 1. Inside the folder Welcome-to-Open-Source, open the README.md file in your preferred text editor (e.g., VSCode).
 
 2. Add your name to the contributors list by inserting the following code snippet inside the <tbody> tag:
-<td align="center"> <a href="https://github.com/your-username"> <img src="https://avatars.githubusercontent.com/u/your-avatar-id?v=4" width="100px;" alt="Your Name"/> <br /> <sub><b>Your Name</b></sub> </a> </td> ``` ```
+```html
+<td align="center">
+    <a href="https://github.com/your-username">
+        <img src="https://avatars.githubusercontent.com/u/your-avatar-id?v=4" width="100px;" alt="Your Name"/>
+        <br />
+        <sub><b>Your Name</b></sub>
+    </a>
+</td>
+
 Replace https://github.com/your-username with your GitHub profile URL.
 Replace https://avatars.githubusercontent.com/u/your-avatar-id?v=4 with your GitHub avatar URL.
 Replace Your Name with your name.

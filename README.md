@@ -29,7 +29,7 @@
                     <sub><b>Andrew Lacambra</b></sub>
                 </a>
             </td>
-                        <td align="center">
+            <td align="center">
                 <a href="https://github.com/SyntaxCodeO">
                     <img src="https://avatars.githubusercontent.com/u/160682688?s=400&v=4" width="100px;" alt="Andrew Lacambra"/>
                     <br />

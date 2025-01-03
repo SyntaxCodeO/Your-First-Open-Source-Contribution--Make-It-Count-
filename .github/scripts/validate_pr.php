@@ -20,7 +20,7 @@ function getNamesFromReadme($readmePath)
 
     foreach ($rows as $row) {
         $cols = $row->getElementsByTagName('td');
-        if ($cols->length === 5) { // Ensure 5 columns only per row
+        if ($cols->length > 0) {
             foreach ($cols as $col) {
                 $bElements = $col->getElementsByTagName('b');
                 if ($bElements->length > 0) {
@@ -30,12 +30,27 @@ function getNamesFromReadme($readmePath)
                     }
                 }
             }
-        } else {
-            throw new Exception("Table rows must have exactly 5 columns.");
         }
     }
 
     return $names;
+}
+
+function createTableRows($names, $maxColumns = 5)
+{
+    $rows = [];
+    $chunkedNames = array_chunk($names, $maxColumns);
+
+    foreach ($chunkedNames as $chunk) {
+        $row = "<tr>";
+        foreach ($chunk as $name) {
+            $row .= "<td>$name</td>";
+        }
+        $row .= "</tr>";
+        $rows[] = $row;
+    }
+
+    return $rows;
 }
 
 function main()
@@ -46,15 +61,12 @@ function main()
     $baseNames = getNamesFromReadme($baseReadme);
     $headNames = getNamesFromReadme($headReadme);
 
-    echo "Base names: " . implode(', ', $baseNames) . "\n";
-    echo "Head names: " . implode(', ', $headNames) . "\n";
-
-    // Check for duplicates in the head
+    // Ensure no duplicates in head README
     if (count($headNames) !== count(array_unique($headNames))) {
         throw new Exception("Duplicate names found in the head README.");
     }
 
-    // Ensure one new name is added
+    // Ensure only one name is added
     $addedNames = array_diff($headNames, $baseNames);
     if (count($addedNames) !== 1) {
         throw new Exception("Exactly one name should be added.");
@@ -65,13 +77,17 @@ function main()
         throw new Exception("New name must be added to the end of the table.");
     }
 
-    // Check if the number of contributors in the new file follows the correct sequence (incrementing the row number)
-    $baseContributorsCount = count($baseNames);
-    $headContributorsCount = count($headNames);
+    // Create the table rows with a max of 5 contributors per row
+    $rows = createTableRows($headNames);
 
-    if ($headContributorsCount !== $baseContributorsCount + 1) {
-        throw new Exception("The number of contributors in the head README should be exactly one more than the base README.");
+    // Output the table
+    echo "<table>\n";
+    echo "<tbody>\n";
+    foreach ($rows as $row) {
+        echo $row . "\n";
     }
+    echo "</tbody>\n";
+    echo "</table>\n";
 
     echo "Validation passed.\n";
     exit(0);

@@ -16,7 +16,7 @@ function getNamesFromReadme($readmePath)
     }
 
     $rows = $tables->item(0)->getElementsByTagName('tr');
-    $contributors = [];
+    $names = [];
 
     foreach ($rows as $row) {
         $cols = $row->getElementsByTagName('td');
@@ -28,14 +28,8 @@ function getNamesFromReadme($readmePath)
                     $bElements = $subElement->getElementsByTagName('b');
                     if ($bElements->length > 0) {
                         $name = trim($bElements->item(0)->textContent);
-                        // Assuming the username is embedded as a link in the <a> tag
-                        $aElements = $col->getElementsByTagName('a');
-                        $username = '';
-                        if ($aElements->length > 0) {
-                            $username = trim($aElements->item(0)->getAttribute('href'));
-                        }
-                        if (!empty($name) && !empty($username)) {
-                            $contributors[] = ['name' => $name, 'username' => $username];
+                        if (!empty($name)) {
+                            $names[] = $name;
                         }
                     }
                 }
@@ -43,42 +37,41 @@ function getNamesFromReadme($readmePath)
         }
     }
 
-    return $contributors;
+    return $names;
 }
 
 function main()
 {
     $readmePath = 'README.md';  // The README file to check
 
-    $existingContributors = getNamesFromReadme($readmePath);  // Get contributors from the README
+    $existingNames = getNamesFromReadme($readmePath);  // Get names from the README
 
-    // Debugging output for existing contributors
-    echo "Existing Contributors: \n";
-    foreach ($existingContributors as $contributor) {
-        echo $contributor['name'] . " - " . $contributor['username'] . "\n";
+    // Debugging output for existing names
+    echo "Existing Names: \n";
+    foreach ($existingNames as $name) {
+        echo $name . "\n";
     }
 
     // In this version, new contributors would come dynamically from the PR or input
     // Example: Here we simulate new contributors being added
     $newContributors = [
-        ['name' => 'Andrew Lacambra', 'username' => 'CodeByMoriarty'],
-        // Add more new contributors with their usernames here
+        'Andrew Lacambra',  // Same name, can be used to check duplicate
+        'John Doe',         // Another new name
+        // Add more new contributors here
     ];
 
-    // Check if any new contributor is already in the README (same name + username)
+    // Check if any new contributor's name already exists
     $duplicates = [];
     foreach ($newContributors as $newContributor) {
-        foreach ($existingContributors as $existingContributor) {
-            if ($newContributor['name'] === $existingContributor['name'] && $newContributor['username'] === $existingContributor['username']) {
-                $duplicates[] = $newContributor;
-            }
+        if (in_array($newContributor, $existingNames)) {
+            $duplicates[] = $newContributor;
         }
     }
 
     if (!empty($duplicates)) {
         echo "Error: Duplicate contributors found: \n";
         foreach ($duplicates as $duplicate) {
-            echo $duplicate['name'] . " - " . $duplicate['username'] . "\n";
+            echo $duplicate . "\n";
         }
         exit(1);
     }
